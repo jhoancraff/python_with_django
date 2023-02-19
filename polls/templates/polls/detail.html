@@ -1,0 +1,38 @@
+<!--<h1>{{question.quiestion_text}}</h1>
+<ul>
+{% for choice in question.choice_set.all  %}
+    <Li>{{choice.choice_text}}</Li>   
+{% endfor %}  
+</ul> -->
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/stale.css' %}">
+
+<form action="{% url 'polls:votos' question.id %}" method='post'>
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{question.quiestion_text}}</h1></legend>
+    {% if error_mensaje %}
+        <p><strong>{{error_mensaje}}</strong></p>
+    {% endif %}
+    {% for choice in question.choice_set.all %}
+        <input 
+            type="radio"
+            name="choice"
+            id="choice{{forloop.counter}}"
+            value="{{choice.id}}"
+
+        >
+        <label for="choice{{forloop.counter}}">
+            {{choice.choice_text}}
+        </label> 
+        <br>  
+    {% endfor %} 
+        
+    
+</fieldset>    
+<input type="submit" value="Votar">
+</form>
+
+
+

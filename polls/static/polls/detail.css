@@ -1,0 +1,30 @@
+h1{
+    color: white;
+}
+
+body{
+    background-color: black;
+}
+
+form{
+    width: 50%;
+    
+    position: relative;
+    left: 330px;
+    top: 100px;
+    
+    
+}
+
+fieldset{
+    height: 50%;
+    background-color: rgb(11, 4, 46);
+    color: aliceblue;
+    
+}
+
+
+input{
+    margin: 20px;
+    
+}

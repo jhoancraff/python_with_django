@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/detalles.css' %}">
+<h1 id="hola">VotaciónApp</h1>
+
+<div >
+    <h1> Pagina principal</h1>
+
+    {% if lates_quiestion_list %}
+        <ul >
+      {% for question in lates_quiestion_list  %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{question.quiestion_text}}</a></li>
+            
+        {% endfor %}
+        </ul>
+        <footer>
+            <a href="htpps://platzi.com">Visitanos</a>
+        </footer>
+
+    {% else %}
+        <p>No polls are availed</p>    
+    {% endif %}
+</div>    
